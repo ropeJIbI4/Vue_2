@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Jost:ital@0;1&display=swap" rel="stylesheet">
+    <title>Task_1</title>
+
+</head>
+<body>
+    <div class="header center">
+        <div class="header__nav">
+            <div>
+                <img class="header__logo" src="img/Logo_header.png" alt="">
+            </div>
+            <div class="header__link">
+                <a href="#">Home</a>
+                <a href="#">Project</a>
+                <a href="#">Blog</a>
+            </div>
+        </div>
+        <div class="header__content center">
+            <div class="header__content__top">
+                <h1 class="header__content__top__title">Articles & News</h1>
+                <p class="header__content__top__parag">Home / Blog</p>
+            </div>
+        </div>
+    </div>
+    <div class="top__content center">
+            <h1 class="top__content__title">Latest Post</h1>
+        <div class="top__content__content">
+            <div class="top__content__img">
+                
+            </div>
+            <div class="top__content__info">
+                <h2 class="top__content__info__title">Low Cost Latest Invented Interior Designing Ideas</h2><br><br>
+                <p class="top__content__info__parag">Lorem ipsum dolor sit amet, adipiscing Aliquam eu sem vitae turpis dignissim maximus.posuere in.Contrary to popular
+                belief.</p><br><br>
+                <p class="top__content__info__parag">Lorem Ipsum is not simply random text. It has roots in a piece of classica.</p>
+                <div class="top__content__info__link">
+                    <p class="top__content__info__link__parag">26 December,2022</p>
+                    <a href="#"><button class="top__content__info__link__btn"><img src="img/btn_3.png" alt=""></button></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="app">
+        <article-news></article-news>
+    </div>
+    <div class="footer">
+        <div class="footer__1">
+            <div>
+                <img class="footer__logo__1" src="img/Logo_header.png" alt="">
+                <p class="footer__parag">It is a long established fact that a reader will be distracted lookings.</p>
+                <div class="footer__logo__2">
+                    <a href="#"><img src="img/twit.png" alt=""></a>
+                    <a href="#"><img src="img/in.png" alt=""></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer__2">
+            <h3>Pages</h3><br>
+            <ul>
+                <li><a href="#">Home</a></li><br>
+                <li><a href="#">Project</a></li><br>
+                <li><a href="#">Blog</a></li><br>
+            </ul>
+    
+        </div>
+        <div class="footer__3">
+            <h3>Contact</h3><br>
+            <p>55 East Birchwood Ave.</p><br>
+            <p>New York, NY 10001</p><br>
+            <p>contact@interno.com</p> <br>
+            <p>(123) 456 - 7890</p>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        const { createApp } = Vue;
+
+        createApp({
+            components: {
+                ArticleNews: {
+                    template: `
+                            <h2 class="article__title">Articles & News</h2>
+                            <div class="article__news">
+                                <div class="article__news__item" v-for="(item, index) in articleNewsData" :key="index">
+                                    <img class="article__news__image" :src="item.image" :alt="item.title">
+                                    <h2 class="article__news__text">{{ item.title }}</h2>
+                                    <div class="article__news__info">
+                    <p class="article__news__info__parag">26 December,2022</p>
+                    <a href="#"><button class="article__news__info__btn"><img src="img/btn_3.png" alt=""></button></a></div>
+                                </div>
+                                <div class="article__news__link"><a href="#"><img src="img/1.png" alt=""></a><a href="#"><img src="img/2.png" alt=""></a><a href="#"><img src="img/3.png" alt=""></a><a href="#"><img src="img/4.png" alt=""></a></div>
+                            </div>
+                            
+                        `,
+                    data() {
+                        return {
+                            articleNewsData: [
+                                {
+                                    image: 'img/article_1.png',
+                                    title: 'Let’s Get Solution For Building Construction Work',
+                                },
+                                {
+                                    image: 'img/article_2.png',
+                                    title: 'Low Cost Latest Invented Interior DesigningIdeas',
+                                }, {
+                                    image: 'img/article_3.png',
+                                    title: 'Best For Any Office & Business Interior Solution',
+                                }, {
+                                    image: 'img/article_4.png',
+                                    title: 'Let’s Get Solution For Building Construction Work',
+                                }, {
+                                    image: 'img/article_5.png',
+                                    title: 'Low Cost Latest Invented Interior Designing Ideas.',
+                                }, {
+                                    image: 'img/article_6.png',
+                                    title: 'Best For Any Office & Business Interior Solution',
+                                }
+                                
+                            ],
+                        };
+                    },
+                },
+            },
+        }).mount('#app');
+    </script>
+
+</body>
+</html>

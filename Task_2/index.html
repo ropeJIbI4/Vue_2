@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <div id="app">
+        <div>
+            <h1>Список товаров</h1>
+            <button @click="sortProducts('asc')">Сортировка по возрастанию</button>
+            <button @click="sortProducts('desc')">Сортировка по убыванию</button>
+            <ul>
+                <li v-for="product in sortedProducts" :key="product.id">
+                    {{ product.name }} - ${{ product.price }}
+                </li>
+            </ul>
+        </div>
+    </div>
+    
+    <script>
+        Vue.createApp({
+            data() {
+                return {
+                    products: [
+                        { id: 1, name: 'Product 1', price: 100 },
+                        { id: 2, name: 'Product 2', price: 150 },
+                        { id: 3, name: 'Product 3', price: 200 },
+                        { id: 4, name: 'Product 4', price: 250 },
+                        { id: 5, name: 'Product 5', price: 300 },
+                        { id: 6, name: 'Product 6', price: 350 },
+                        { id: 7, name: 'Product 7', price: 400 },
+                        { id: 8, name: 'Product 8', price: 450 },
+                        { id: 9, name: 'Product 9', price: 500 },
+                    ],
+                    sortOrder: 'asc',
+                };
+            },
+            computed: {
+                sortedProducts() {
+                    return this.products.slice().sort((a, b) => {
+                        return this.sortOrder === 'asc' ? a.price - b.price : b.price - a.price;
+                    });
+                },
+            },
+            methods: {
+                sortProducts(order) {
+                    this.sortOrder = order;
+                },
+            },
+        }).mount('#app')
+    </script>
+
+</body>
+</html>
